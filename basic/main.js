@@ -27,10 +27,12 @@ console.error('error');
 var isVisible = true;
 var myFirstName = 'Matthijs';
 var myLastName = "Kamstra";
+// myFirstName + " " + myLastName;
+var myxName = `Kamstra ${myFirstName}`;
 var myLength = 1.97; // meters
 var myEgo = 25;
-var myToysArray = ['nintendo', 'skateboard', 'scissor'];
-var myObj = { key1: "Hello", key2: "World" };
+var myToysArray = ['nintendo', 'skateboard', 'scissor', '21'];
+var myObj = { key1: "Hello", key2: "World", key3: 21, key4: true, data: ['x', 'y'] };
 
 /////////////////////////////////////////////////
 // logic and control Structures
@@ -38,6 +40,10 @@ var myObj = { key1: "Hello", key2: "World" };
 
 // if else
 var count = 1;
+if (count == 1) {
+    count = 0;
+}
+
 if (count == 3) {
     // evaluated if count is 3
 } else if (count == 4) {
@@ -47,6 +53,10 @@ if (count == 3) {
 }
 
 // for loop
+for (var i = 0; i < myToysArray.length; i++) {
+    // will run 5 times
+}
+
 for (var i = 0; i < 5; i++) {
     // will run 5 times
 }
@@ -75,7 +85,7 @@ switch (grade) {
 function test(params) {
     console.log('test: ' + params);
 }
-test('foobar');
+test('foobazzz');
 
 function add(a, b) {
     console.log(a + b);
