@@ -8,7 +8,6 @@
  * block comment
  */
 
-
 /////////////////////////////////////////////////
 // logging
 /////////////////////////////////////////////////
@@ -20,7 +19,6 @@ console.warn('warn');
 console.info('info');
 
 console.error('error');
-
 
 /////////////////////////////////////////////////
 // variables, arrays and objects
@@ -78,3 +76,8 @@ function test(params) {
     console.log('test: ' + params);
 }
 test('foobar');
+
+function add(a, b) {
+    console.log(a + b);
+}
+add(100, 4);
