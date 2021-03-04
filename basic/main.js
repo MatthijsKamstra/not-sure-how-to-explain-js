@@ -37,13 +37,11 @@ if (count == 3) {
 }
 
 // for loop
-
 for (var i = 0; i < 5; i++) {
     // will run 5 times
 }
 
 // switch
-
 var grade = 'B';
 switch (grade) {
     case 'A':
