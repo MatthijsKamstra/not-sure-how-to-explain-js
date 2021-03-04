@@ -12,7 +12,7 @@ function changeContent() {
 	el.innerText = obj.firstName;
 	el.style.border = '1px solid pink';
 	el.title = 'changed';
-
+	el.classList.add = 'toggle';
 }
 
 function findAndUpdate() {
@@ -21,7 +21,6 @@ function findAndUpdate() {
 		changeContent();
 	}
 }
-
 
 document.addEventListener('DOMContentLoaded', function (event) {
 	// the event occurred
