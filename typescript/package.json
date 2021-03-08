@@ -1,15 +1,15 @@
 {
-  "name": "typescript_folder",
+  "name": "unicorn-says-hello-world",
   "version": "1.0.0",
-  "description": "```bash # setup npm and typescript1 npm init -y tsc --init",
-  "main": "index.js",
+  "description": "A unicorn that says hello world",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^4.2.3"
+    "build": "tsc",
+    "prepare": "npm run build"
   }
 }
