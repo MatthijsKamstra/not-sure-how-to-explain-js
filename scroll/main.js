@@ -1,9 +1,7 @@
 //
-let timerArr = [];
-let positionArr = [];
+let countUpArr = [];
 let last_known_scroll_position = 0.0;
 let ticking = false;
-
 
 function collectData() {
 	var arr = document.getElementsByClassName('animate-timer');
@@ -13,24 +11,26 @@ function collectData() {
 		const obj = {
 			element: el,
 			endValue: parseInt(el.innerHTML),
-			startValue: parseInt(0)
+			startValue: parseInt(0),
+			isActivate: false,
+			top: offset(el).top,
+			left: offset(el).left,
 		};
-		timerArr.push(obj);
-		// startAnimation(el, obj.endValue);
+		countUpArr.push(obj);
+		el.innerHTML = '0%';
 	}
-	setupTriggers();
 
 	document.addEventListener('scroll', function (e) {
 		last_known_scroll_position = window.scrollY;
 		// use tick to dampen the calls
 		if (!ticking) {
 			window.requestAnimationFrame(function (e) {
-				// toggleReveal(last_known_scroll_position);
-				console.log(last_known_scroll_position);
-				for (let i = 0; i < positionArr.length; i++) {
-
-					if (last_known_scroll_position >= positionArr[i]) {
-						console.log('gaan met die banaan ' + i);
+				for (let i = 0; i < countUpArr.length; i++) {
+					var obj = countUpArr[i];
+					var viewH = window.innerHeight;
+					if (last_known_scroll_position >= (obj.top - (viewH / 2)) && countUpArr[i].isActivate == false) {
+						obj.isActivate = true;
+						startAnimation(obj.element, obj.endValue);
 					}
 				}
 				ticking = false;
@@ -38,14 +38,6 @@ function collectData() {
 			ticking = true;
 		}
 	});
-}
-
-function setupTriggers() {
-	for (let i = 0; i < timerArr.length; i++) {
-		const obj = timerArr[i];
-		console.log(offset(obj.element));
-		positionArr.push(offset(obj.element).top);
-	}
 }
 
 function offset(el) {
@@ -57,7 +49,6 @@ function offset(el) {
 }
 
 function startAnimation(el, nr) {
-	// console.log('startanimation');
 	el.innerHTML = '0%';
 	let counter = 0;
 	let timer = setInterval(updateCounter, 50);
@@ -70,9 +61,8 @@ function startAnimation(el, nr) {
 	}
 }
 
-
 document.addEventListener('DOMContentLoaded', function (event) {
 	// the event occurred
-	console.log('DOM ready');
+	// console.log('DOM ready');
 	collectData()
 });
