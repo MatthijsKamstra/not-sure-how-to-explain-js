@@ -4,7 +4,7 @@ let last_known_scroll_position = 0.0;
 let ticking = false;
 
 function collectData() {
-	var arr = document.getElementsByClassName('animate-timer');
+	const arr = document.getElementsByClassName('animate-timer');
 	if (arr.length <= 0) return;
 	for (let i = 0; i < arr.length; i++) {
 		const el = arr[i];
@@ -26,9 +26,9 @@ function collectData() {
 		if (!ticking) {
 			window.requestAnimationFrame(function (e) {
 				for (let i = 0; i < countUpArr.length; i++) {
-					var obj = countUpArr[i];
-					var viewH = window.innerHeight;
-					if (last_known_scroll_position >= (obj.top - (viewH / 2)) && countUpArr[i].isActivate == false) {
+					const obj = countUpArr[i];
+					const viewH = window.innerHeight;
+					if (last_known_scroll_position >= (obj.top - (viewH / 2)) && obj.isActivate == false) {
 						obj.isActivate = true;
 						startAnimation(obj.element, obj.endValue);
 					}
@@ -41,7 +41,7 @@ function collectData() {
 }
 
 function offset(el) {
-	var rect = el.getBoundingClientRect();
+	const rect = el.getBoundingClientRect();
 	return {
 		top: rect.top + document.documentElement.scrollTop,
 		left: rect.left + document.documentElement.scrollLeft
@@ -51,7 +51,7 @@ function offset(el) {
 function startAnimation(el, nr) {
 	el.innerHTML = '0%';
 	let counter = 0;
-	let timer = setInterval(updateCounter, 50);
+	const timer = setInterval(updateCounter, 50);
 	function updateCounter() {
 		counter++;
 		el.innerHTML = counter + "%";
